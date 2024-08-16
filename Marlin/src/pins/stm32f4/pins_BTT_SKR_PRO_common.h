@@ -274,14 +274,31 @@
   #define Z_SERIAL_TX_PIN                   PE1
   #define Z_SERIAL_RX_PIN        Z_SERIAL_TX_PIN
 
+#ifdef E0_DRIVER_TYPE
   #define E0_SERIAL_TX_PIN                  PD4
   #define E0_SERIAL_RX_PIN      E0_SERIAL_TX_PIN
-
+#endif
+#ifdef E1_DRIVER_TYPE
   #define E1_SERIAL_TX_PIN                  PD1
   #define E1_SERIAL_RX_PIN      E1_SERIAL_TX_PIN
-
+#endif
+#ifdef E2_DRIVER_TYPE
   #define E2_SERIAL_TX_PIN                  PD6
   #define E2_SERIAL_RX_PIN      E2_SERIAL_TX_PIN
+#endif
+
+#ifdef I_DRIVER_TYPE
+  #define I_SERIAL_TX_PIN                  PD4
+  #define I_SERIAL_RX_PIN      I_SERIAL_TX_PIN
+#endif
+#ifdef J_DRIVER_TYPE
+  #define J_SERIAL_TX_PIN                  PD1
+  #define J_SERIAL_RX_PIN      J_SERIAL_TX_PIN
+#endif
+#ifdef K_DRIVER_TYPE
+  #define K_SERIAL_TX_PIN                  PD6
+  #define K_SERIAL_RX_PIN      K_SERIAL_TX_PIN
+#endif
 
   // Reduce baud rate to improve software serial reliability
   #ifndef TMC_BAUD_RATE
