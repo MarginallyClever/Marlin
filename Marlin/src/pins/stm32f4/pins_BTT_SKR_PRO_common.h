@@ -63,9 +63,31 @@
 #define X_DIAG_PIN                          PB10  // X-
 #define Y_DIAG_PIN                          PE12  // Y-
 #define Z_DIAG_PIN                          PG8   // Z-
+
+#ifdef E0_DRIVER_TYPE
 #define E0_DIAG_PIN                         PE15  // E0
+#endif
+
+#ifdef E1_DRIVER_TYPE
 #define E1_DIAG_PIN                         PE10  // E1
+#endif
+
+#ifdef E2_DRIVER_TYPE
 #define E2_DIAG_PIN                         PG5   // E2
+#endif
+
+#ifdef I_DRIVER_TYPE
+#define I_DIAG_PIN                         PE15  // I-
+#endif
+
+#ifdef J_DRIVER_TYPE
+#define J_DIAG_PIN                         PE10  // J-
+#endif
+
+#ifdef K_DRIVER_TYPE
+#define K_DIAG_PIN                         PG5  // K-
+#endif
+
 
 //
 // Limit Switches
@@ -157,25 +179,58 @@
   #define Z_CS_PIN                          PB9
 #endif
 
+#ifdef E0_DRIVER_TYPE
 #define E0_STEP_PIN                         PE14
 #define E0_DIR_PIN                          PA0
 #define E0_ENABLE_PIN                       PC3
 #ifndef E0_CS_PIN
   #define E0_CS_PIN                         PB3
 #endif
+#endif
 
+#ifdef E1_DRIVER_TYPE
 #define E1_STEP_PIN                         PD15
 #define E1_DIR_PIN                          PE7
 #define E1_ENABLE_PIN                       PA3
 #ifndef E1_CS_PIN
   #define E1_CS_PIN                         PG15
 #endif
+#endif
 
+#ifdef E2_DRIVER_TYPE
 #define E2_STEP_PIN                         PD13
 #define E2_DIR_PIN                          PG9
 #define E2_ENABLE_PIN                       PF0
 #ifndef E2_CS_PIN
   #define E2_CS_PIN                         PG12
+#endif
+#endif
+
+#ifdef I_DRIVER_TYPE
+#define I_STEP_PIN                         PE14
+#define I_DIR_PIN                          PA0
+#define I_ENABLE_PIN                       PC3
+#ifndef I_CS_PIN
+  #define I_CS_PIN                         PB3
+#endif
+#endif
+
+#ifdef J_DRIVER_TYPE
+#define J_STEP_PIN                         PD15
+#define J_DIR_PIN                          PE7
+#define J_ENABLE_PIN                       PA3
+#ifndef J_CS_PIN
+  #define J_CS_PIN                         PG15
+#endif
+#endif
+
+#ifdef K_DRIVER_TYPE
+#define K_STEP_PIN                         PD13
+#define K_DIR_PIN                          PG9
+#define K_ENABLE_PIN                       PF0
+#ifndef K_CS_PIN
+  #define K_CS_PIN                         PG12
+#endif
 #endif
 
 //

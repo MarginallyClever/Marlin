@@ -61,14 +61,14 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(none, default config)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(Marginally Clever Robots Ltd, linear stewart platform)" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 // @section machine
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_RAMPS_14_EFB
+  #define MOTHERBOARD BOARD_BTT_SKR_PRO_V1_2
 #endif
 
 /**
@@ -79,7 +79,7 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
  */
-#define SERIAL_PORT 0
+#define SERIAL_PORT 1
 
 /**
  * Serial Port Baud Rate
@@ -126,7 +126,7 @@
 //#define BLUETOOTH
 
 // Name displayed in the LCD "Ready" message and Info menu
-//#define CUSTOM_MACHINE_NAME "3D Printer"
+#define CUSTOM_MACHINE_NAME "Stewart platform"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -157,13 +157,13 @@
 //#define Z2_DRIVER_TYPE A4988
 //#define Z3_DRIVER_TYPE A4988
 //#define Z4_DRIVER_TYPE A4988
-//#define I_DRIVER_TYPE  A4988
-//#define J_DRIVER_TYPE  A4988
-//#define K_DRIVER_TYPE  A4988
+#define I_DRIVER_TYPE  A4988
+#define J_DRIVER_TYPE  A4988
+#define K_DRIVER_TYPE  A4988
 //#define U_DRIVER_TYPE  A4988
 //#define V_DRIVER_TYPE  A4988
-//#define W_DRIVER_TYPE  A4988
-#define E0_DRIVER_TYPE A4988
+//##define W_DRIVER_TYPE  A4988
+//#define E0_DRIVER_TYPE A4988
 //#define E1_DRIVER_TYPE A4988
 //#define E2_DRIVER_TYPE A4988
 //#define E3_DRIVER_TYPE A4988
@@ -218,7 +218,7 @@
 
 // This defines the number of extruders
 // :[0, 1, 2, 3, 4, 5, 6, 7, 8]
-#define EXTRUDERS 1
+#define EXTRUDERS 0
 
 // Generally expected filament diameter (1.75, 2.85, 3.0, ...). Used for Volumetric, Filament Width Sensor, etc.
 #define DEFAULT_NOMINAL_FILAMENT_DIA 1.75
@@ -1730,10 +1730,10 @@
 #define X_ENABLE_ON 0
 #define Y_ENABLE_ON 0
 #define Z_ENABLE_ON 0
-#define E_ENABLE_ON 0 // For all extruders
-//#define I_ENABLE_ON 0
-//#define J_ENABLE_ON 0
-//#define K_ENABLE_ON 0
+//#define E_ENABLE_ON 0 // For all extruders
+#define I_ENABLE_ON 0
+#define J_ENABLE_ON 0
+#define K_ENABLE_ON 0
 //#define U_ENABLE_ON 0
 //#define V_ENABLE_ON 0
 //#define W_ENABLE_ON 0
@@ -1764,9 +1764,9 @@
 #define INVERT_X_DIR false
 #define INVERT_Y_DIR true
 #define INVERT_Z_DIR false
-//#define INVERT_I_DIR false
-//#define INVERT_J_DIR false
-//#define INVERT_K_DIR false
+#define INVERT_I_DIR false
+#define INVERT_J_DIR false
+#define INVERT_K_DIR false
 //#define INVERT_U_DIR false
 //#define INVERT_V_DIR false
 //#define INVERT_W_DIR false
@@ -1808,9 +1808,9 @@
 #define X_HOME_DIR -1
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR -1
-//#define I_HOME_DIR -1
-//#define J_HOME_DIR -1
-//#define K_HOME_DIR -1
+#define I_HOME_DIR -1
+#define J_HOME_DIR -1
+#define K_HOME_DIR -1
 //#define U_HOME_DIR -1
 //#define V_HOME_DIR -1
 //#define W_HOME_DIR -1
@@ -1833,8 +1833,8 @@
 // @section geometry
 
 // The size of the printable area
-#define X_BED_SIZE 200
-#define Y_BED_SIZE 200
+#define X_BED_SIZE 100
+#define Y_BED_SIZE 100
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
@@ -1842,13 +1842,13 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 200
-//#define I_MIN_POS 0
-//#define I_MAX_POS 50
-//#define J_MIN_POS 0
-//#define J_MAX_POS 50
-//#define K_MIN_POS 0
-//#define K_MAX_POS 50
+#define Z_MAX_POS 100
+#define I_MIN_POS 0
+#define I_MAX_POS 100
+#define J_MIN_POS 0
+#define J_MAX_POS 100
+#define K_MIN_POS 0
+#define K_MAX_POS 100
 //#define U_MIN_POS 0
 //#define U_MAX_POS 50
 //#define V_MIN_POS 0
@@ -2617,7 +2617,7 @@
  * SD Card support is disabled by default. If your controller has an SD slot,
  * you must uncomment the following option or it won't work.
  */
-//#define SDSUPPORT
+#define SDSUPPORT
 
 /**
  * SD CARD: ENABLE CRC
@@ -2625,7 +2625,7 @@
  * Use CRC checks and retries on the SD communication.
  */
 #if ENABLED(SDSUPPORT)
-  //#define SD_CHECK_AND_RETRY
+  #define SD_CHECK_AND_RETRY
 #endif
 
 // @section interface
@@ -2947,7 +2947,7 @@
 // RepRapDiscount FULL GRAPHIC Smart Controller
 // https://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller
 //
-//#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
 
 //
 // K.3D Full Graphic Smart Controller
