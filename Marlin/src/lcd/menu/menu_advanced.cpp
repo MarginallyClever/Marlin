@@ -697,7 +697,7 @@ void menu_advanced_settings() {
         EDIT_ITEM_FAST(float51sign, MSG_DRAW_MAX_X, &draw_area_max.x, draw_area_min.x + 10, X_MAX_POS); // M665 R
         EDIT_ITEM_FAST(float51sign, MSG_DRAW_MIN_Y, &draw_area_min.y, Y_MIN_POS, draw_area_max.y - 10); // M665 T
         EDIT_ITEM_FAST(float51sign, MSG_DRAW_MAX_Y, &draw_area_max.y, draw_area_min.y + 10, Y_MAX_POS); // M665 B
-        EDIT_ITEM_FAST(float51sign, MSG_MAX_BELT_LEN, &hypoteneuse_length_at_home_position, 500, HYPOTENEUSE_LENGTH_AT_HOME_POSITION+100); // M665 H
+        EDIT_ITEM_FAST(float51sign, MSG_MAX_BELT_LEN, &polargraph_max_belt_len, 500, HYPOTENEUSE_LENGTH_AT_HOME_POSITION+100); // M665 H
       }
     #endif
 

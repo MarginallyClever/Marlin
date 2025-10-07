@@ -170,7 +170,7 @@
     if (parser.seenval('R')) draw_area_max.x = parser.value_linear_units();
     if (parser.seenval('T')) draw_area_max.y = parser.value_linear_units();
     if (parser.seenval('B')) draw_area_min.y = parser.value_linear_units();
-    if (parser.seenval('H')) hypoteneuse_length_at_home_position = parser.value_linear_units();
+    if (parser.seenval('H')) polargraph_max_belt_len = parser.value_linear_units();
   }
 
   void GcodeSuite::M665_report(const bool forReplay/*=true*/) {
@@ -183,7 +183,7 @@
       PSTR(" R"), LINEAR_UNIT(draw_area_max.x),
       SP_T_STR, LINEAR_UNIT(draw_area_max.y),
       SP_B_STR, LINEAR_UNIT(draw_area_min.y),
-      PSTR(" H"), LINEAR_UNIT(hypoteneuse_length_at_home_position)
+      PSTR(" H"), LINEAR_UNIT(polargraph_max_belt_len)
     );
   }
 
