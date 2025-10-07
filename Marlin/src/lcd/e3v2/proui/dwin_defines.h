@@ -23,7 +23,8 @@
 
 /**
  * DWIN general defines and data structs for PRO UI
- * Author: Miguel A. Risco-Castillo (MRISCOC)
+ * Based on the original work of: Miguel Risco-Castillo (MRISCOC)
+ * https://github.com/mriscoc/Ender3V2S1
  * Version: 3.12.2
  * Date: 2022/08/08
  */
@@ -33,6 +34,10 @@
 //#define TJC_DISPLAY           // Enable for TJC display
 //#define DACAI_DISPLAY         // Enable for DACAI display
 //#define TITLE_CENTERED        // Center Menu Title Text
+
+#if HAS_MESH
+  #define USE_GRID_MESHVIEWER 1
+#endif
 
 #if HAS_MESH
   #define PROUI_MESH_EDIT       // Add a menu to edit mesh points
