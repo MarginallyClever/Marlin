@@ -1387,7 +1387,7 @@
     #define Y_HOME_TO_MIN 1
   #endif
 #endif
-#if HAS_Z_AXIS
+#if HAS_Z_AXIS && DISABLED(POLARGRAPH)
   #if Z_HOME_DIR > 0
     #define Z_HOME_TO_MAX 1
   #elif Z_HOME_DIR < 0
