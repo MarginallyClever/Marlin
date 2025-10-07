@@ -2402,6 +2402,11 @@ bool Planner::_populate_block(
     // Start with print or travel acceleration
     accel = CEIL((esteps ? settings.acceleration : settings.travel_acceleration) * steps_per_mm);
 
+    #if ENABLED(POLARGRAPH)
+      const float y_mm = float(block->position.y) / planner.settings.axis_steps_per_mm[Y_AXIS];
+      accel *= POLARGRAPH_ACCEL_ADJUST_MIN + POLARGRAPH_ACCEL_ADJUST_INV * (y_mm-Y_MIN_POS) / Y_BED_SIZE;
+    #endif
+
     #if ANY(LIN_ADVANCE, FTM_HAS_LIN_ADVANCE)
       // Linear advance is currently not ready for HAS_I_AXIS
       #define MAX_E_JERK(N) TERN(HAS_LINEAR_E_JERK, max_e_jerk[E_INDEX_N(N)], max_jerk.e)
