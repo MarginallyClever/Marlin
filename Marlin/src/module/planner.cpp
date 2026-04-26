@@ -2404,7 +2404,9 @@ bool Planner::_populate_block(
 
     #if ENABLED(POLARGRAPH)
       const float y_mm = float(block->position.y) / planner.settings.axis_steps_per_mm[Y_AXIS];
-      accel *= POLARGRAPH_ACCEL_ADJUST_MIN + POLARGRAPH_ACCEL_ADJUST_INV * (y_mm-Y_MIN_POS) / Y_BED_SIZE;
+      float unit = POLARGRAPH_ACCEL_ADJUST_MIN + POLARGRAPH_ACCEL_ADJUST_INV * (y_mm-Y_MIN_POS) / Y_BED_SIZE;
+      unit = _MAX(0,_MIN(1,unit));
+      accel *= unit;
     #endif
 
     #if ANY(LIN_ADVANCE, FTM_HAS_LIN_ADVANCE)
