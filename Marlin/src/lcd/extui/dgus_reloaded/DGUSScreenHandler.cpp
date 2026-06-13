@@ -117,7 +117,7 @@ void DGUSScreenHandler::loop() {
   }
 
   if (current_screenID == DGUS_ScreenID::WAIT
-      && ((wait_continue && !wait_for_user) || (!wait_continue && isPrinterIdle()))
+      && ((wait_continue && !marlin.wait_for_user) || (!wait_continue && isPrinterIdle()))
   ) {
     moveToScreen(wait_return_screenID, true);
     return;
@@ -149,7 +149,7 @@ void DGUSScreenHandler::loop() {
 void DGUSScreenHandler::printerKilled(FSTR_P const error, FSTR_P const component) {
   setMessageLine(error, 1);
   setMessageLine(component, 2);
-  setMessageLinePGM(NUL_STR, 3);
+  setMessageLine_P(NUL_STR, 3);
   setMessageLine(GET_TEXT_F(MSG_PLEASE_RESET), 4);
 
   dgus.playSound(3, 1, 200);
@@ -158,10 +158,10 @@ void DGUSScreenHandler::printerKilled(FSTR_P const error, FSTR_P const component
 }
 
 void DGUSScreenHandler::userConfirmRequired(const char * const msg) {
-  setMessageLinePGM(NUL_STR, 1);
+  setMessageLine_P(NUL_STR, 1);
   setMessageLine(msg, 2);
-  setMessageLinePGM(NUL_STR, 3);
-  setMessageLinePGM(NUL_STR, 4);
+  setMessageLine_P(NUL_STR, 3);
+  setMessageLine_P(NUL_STR, 4);
 
   dgus.playSound(3);
 
@@ -351,7 +351,7 @@ void DGUSScreenHandler::setMessageLine(const char * const msg, const uint8_t lin
   }
 }
 
-void DGUSScreenHandler::setMessageLinePGM(PGM_P const msg, const uint8_t line) {
+void DGUSScreenHandler::setMessageLine_P(PGM_P const msg, const uint8_t line) {
   switch (line) {
     default: return;
     case 1:
@@ -389,10 +389,10 @@ void DGUSScreenHandler::showWaitScreen(const DGUS_ScreenID return_screenID, cons
 }
 
 void DGUSScreenHandler::showWaitScreen(FSTR_P const msg, const DGUS_ScreenID return_screenID, const bool has_continue/*=false*/) {
-  setMessageLinePGM(NUL_STR, 1);
+  setMessageLine_P(NUL_STR, 1);
   setMessageLine(msg, 2);
-  setMessageLinePGM(NUL_STR, 3);
-  setMessageLinePGM(NUL_STR, 4);
+  setMessageLine_P(NUL_STR, 3);
+  setMessageLine_P(NUL_STR, 4);
   showWaitScreen(return_screenID, has_continue);
 }
 
@@ -453,7 +453,7 @@ void DGUSScreenHandler::moveToScreen(const DGUS_ScreenID screenID, bool abort_wa
 
     if (!abort_wait) return;
 
-    if (wait_continue && wait_for_user)
+    if (wait_continue && marlin.wait_for_user)
       ExtUI::setUserConfirmed();
   }
 
