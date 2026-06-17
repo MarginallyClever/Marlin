@@ -2134,7 +2134,7 @@
 // Manually set the home position. Leave these undefined for automatic settings.
 // For DELTA this is the top-center of the Cartesian print volume.
 #define MANUAL_X_HOME_POS 0
-#define MANUAL_Y_HOME_POS -916.96009348  //(Y_MAX_POS-( sqrt(sq(POLARGRAPH_MAX_BELT_LEN)-sq(X_BED_SIZE/2))))
+#define MANUAL_Y_HOME_POS -916.96009348
 /*
 X_BED_SIZE = 1366
 Y_BED_SIZE = 2000
