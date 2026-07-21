@@ -3796,6 +3796,8 @@
  */
 #define NUM_SERVOS 1 // Note: Servo index starts with 0 for M280-M282 commands
 
+#define SERVO0_PIN PA1
+
 // (ms) Delay before the next move will start, to give the servo time to reach its target angle.
 // 300ms is a good value but you can try less delay.
 // If the servo can't reach the requested position, increase it.
