@@ -128,7 +128,7 @@
 //#define BLUETOOTH
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "Makelangelo 5"
+#define CUSTOM_MACHINE_NAME "Makelangelo 6 Huge"
 //#define CONFIGURABLE_MACHINE_NAME  // Add G-code M550 to set/report the machine name
 
 // Printer's unique ID, used by some programs to differentiate between machines.
